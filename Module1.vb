@@ -1,6 +1,6 @@
 Module Module1
 
-    Sub Main() 'Maybe make a loop to stop program exiting before requested
+    Sub Main()
         Dim Choice As Integer
         Dim Finished As Boolean
         Finished = False ' Does nothing
@@ -11,7 +11,7 @@ Module Module1
                 Case 1 : ConvertNumber()
                 Case 2 : ConvertFile()
                 Case 3 : DisplayFile()
-                Case 4 : Finished = True ' end program - doesn't (it ends anyway)
+                Case 4 : Finished = True
             End Select
             Console.ReadLine()
         End While
@@ -31,7 +31,7 @@ Module Module1
         Response = 0
         While Response > 4 Or Response < 1
             Console.Write("Enter option number: ")
-            Response = Val(Console.ReadLine()) 'Will error if non-number is enter
+            Response = Val(Console.ReadLine())
         End While
     End Sub ' of GetResponse
 
@@ -75,7 +75,7 @@ Module Module1
         If ErrorFound Then
             Return "Invalid Input"
         Else
-            Binary = Result 'RAWR dislike
+            Return Result
         End If
     End Function ' of Binary
 
