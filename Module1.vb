@@ -4,15 +4,17 @@ Module Module1
         Dim Choice As Integer
         Dim Finished As Boolean
         Finished = False ' Does nothing
-        ShowMenu()
-        GetResponse(Choice)
-        Select Case Choice
-            Case 1 : ConvertNumber()
-            Case 2 : ConvertFile()
-            Case 3 : DisplayFile()
-            Case 4 ' end program - doesn't (it ends anyway)
-        End Select
-        Console.ReadLine()
+        While Not Finished
+                ShowMenu()
+                GetResponse(Choice)
+                Select Case Choice
+                    Case 1 : ConvertNumber()
+                    Case 2 : ConvertFile()
+                    Case 3 : DisplayFile()
+                    Case 4 : Finished = True' end program - doesn't (it ends anyway)
+                End Select
+                Console.ReadLine()
+        End While
     End Sub ' of main
 
     Sub ShowMenu()
