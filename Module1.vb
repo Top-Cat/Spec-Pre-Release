@@ -9,9 +9,10 @@ Module Module1
             GetResponse(Choice)
             Select Case Choice
                 Case 1 : ConvertNumber()
-                Case 2 : ConvertFile()
-                Case 3 : DisplayFile()
-                Case 4 : Finished = True
+                Case 2 : ConvertNumber()
+                Case 3 : ConvertFile()
+                Case 4 : DisplayFile()
+                Case 5 : Finished = True
             End Select
             Console.ReadLine()
         End While
@@ -21,9 +22,10 @@ Module Module1
         Console.WriteLine("Please choose an option")
         Console.Writeline()
         Console.Writeline("1 - Convert a Hex numnber to Binary")
-        Console.Writeline("2 - Convert a text file of Hex numbers")
-        Console.WriteLine("3 - Display text file")
-        Console.WriteLine("4 - Exit program")
+        Console.Writeline("2 - Convert a Binary numnber to Hex")
+        Console.Writeline("3 - Convert a text file of Hex numbers")
+        Console.WriteLine("4 - Display text file")
+        Console.WriteLine("5 - Exit program")
         Console.Writeline()
     End Sub ' of ShowMenu
 
@@ -107,12 +109,20 @@ Module Module1
         End If
     End Function ' of Binary
 
-    Sub ConvertNumber()
+    Sub ConvertNumber(ByVal HtoB as Boolean)
         Dim Hexadecimal As String
         Dim Converted As String
-        Console.Write("Enter a Hexadecimal number: ")
+        Dim con As String = "Binary"
+        If HtoB Then
+            con = "Hexadecimal"
+        End If
+        Console.Write("Enter a " + con + " number: ")
         Hexadecimal = Console.ReadLine
-        Converted = Binary(Hexadecimal)
+        If HtoB Then
+            Converted = Binary(Hexadecimal)
+        Else
+            Converted = Hex(Hexadecimal)
+        End If
         Console.WriteLine(Converted)
     End Sub ' of ConvertNumber
 
