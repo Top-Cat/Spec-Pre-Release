@@ -41,6 +41,7 @@ Module Module1
         Dim NoOfHexDigits As Integer
         Dim ThisHexDigit As String
         Dim BinaryEquivalent As String
+        Dim ErrorFound = False
         Result = ""
         BinaryEquivalent = "" 'added - but not neccessary
         NoOfHexDigits = Len(Hex)
@@ -65,11 +66,17 @@ Module Module1
                     Case "E" : BinaryEquivalent = "1110"
                     Case "F" : BinaryEquivalent = "1111"
                 End Select
-            Else ' REALLY, just really?
+            Else
+                ErrorFound = True
+                Exit For
             End If
             Result = Result + BinaryEquivalent 'Should use '&' but won't error. Due to hardcoded strings
         Next
-        Binary = Result 'RAWR dislike
+        If ErrorFound Then
+            Return "Invalid Input"
+        Else
+            Binary = Result 'RAWR dislike
+        End If
     End Function ' of Binary
 
     Sub ConvertNumber()
