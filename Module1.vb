@@ -35,6 +35,34 @@ Module Module1
         End While
     End Sub ' of GetResponse
 
+    Function Hex(ByVal Binary As String) As String
+        Dim Result As String
+        While (Len(Binary) % 4) <> 0
+            Binary = "0" & Binary
+        End While
+        For i = 1 To (Len(Binary) / 4)
+            Select Case Mid(Binary, ((i - 1) * 4) + 1, 4)
+                Case "0000" : Result &= "0" 'corrected bin equiv of hex digits
+                Case "0001" : Result &= "1"
+                Case "0010" : Result &= "2"
+                Case "0011" : Result &= "3"
+                Case "0100" : Result &= "4"
+                Case "0101" : Result &= "5"
+                Case "0110" : Result &= "6"
+                Case "0111" : Result &= "7"
+                Case "1000" : Result &= "8"
+                Case "1001" : Result &= "9"
+                Case "1010" : Result &= "A"
+                Case "1011" : Result &= "B"
+                Case "1100" : Result &= "C"
+                Case "1101" : Result &= "D"
+                Case "1110" : Result &= "E"
+                Case "1111" : Result &= "F"
+            End Select
+        Next
+        Return Result
+    End Sub
+
     Function Binary(ByVal Hex As String) As String
         Dim Result As String
         Dim HexDigit As Integer
