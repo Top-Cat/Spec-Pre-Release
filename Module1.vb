@@ -66,12 +66,9 @@ Module Module1
     End Sub
 
     Function Binary(ByVal Hex As String) As String
-        Dim Result As String
-        Dim HexDigit As Integer
-        Dim NoOfHexDigits As Integer
-        Dim ThisHexDigit As String
-        Dim BinaryEquivalent As String
-        Dim ErrorFound = False
+        Dim Result, ThisHexDigit, BinaryEquivalent As String
+        Dim HexDigit, NoOfHexDigits As Integer
+        Dim ErrorFound As Boolean = False
         Result = ""
         BinaryEquivalent = "" 'added - but not neccessary
         NoOfHexDigits = Len(Hex)
@@ -110,9 +107,8 @@ Module Module1
     End Function ' of Binary
 
     Sub ConvertNumber(ByVal HtoB as Boolean)
-        Dim Hexadecimal As String
-        Dim Converted As String
-        Dim con As String = "Binary"
+        Dim Hexadecimal , Converted, con As String
+        con = "Binary"
         If HtoB Then
             con = "Hexadecimal"
         End If
@@ -127,8 +123,7 @@ Module Module1
     End Sub ' of ConvertNumber
 
     Sub ConvertFile()
-        Dim HexNumber As String
-        Dim BinaryNumber As String
+        Dim HexNumber, BinaryNumber As String
         FileOpen(1, "C:\Documents and Settings\VPCuser\My Documents\HexData.txt", OpenMode.Input)
         FileOpen(2, "C:\Documents and Settings\VPCuser\My Documents\BinaryData.txt", OpenMode.Output)
         Console.WriteLine()
