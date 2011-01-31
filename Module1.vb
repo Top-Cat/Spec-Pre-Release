@@ -91,14 +91,17 @@ Module Module1
     Sub ConvertFile()
         Dim HexNumber As String
         Dim BinaryNumber As String
-        FileOpen(1, "C:\Documents and Settings\VPCuser\My Documents\COMP1 practice\COMP1_specimen\HexData.txt", OpenMode.Input)
+        FileOpen(1, "C:\Documents and Settings\VPCuser\My Documents\HexData.txt", OpenMode.Input)
+        FileOpen(2, "C:\Documents and Settings\VPCuser\My Documents\BinaryData.txt", OpenMode.Output)
         Console.WriteLine()
         Do While Not EOF(1)
             HexNumber = LineInput(1)
             BinaryNumber = Binary(HexNumber)
             Console.WriteLine(BinaryNumber)
+            FilePut(1, BinaryNumber)
         Loop
         FileClose(1)
+        FileClose(2)
         Console.ReadLine()
     End Sub ' of ConvertFile
 
