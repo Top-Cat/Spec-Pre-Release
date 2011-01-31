@@ -39,7 +39,7 @@ Module Module1
 
     Function Hex(ByVal Binary As String) As String
         Dim Result As String
-        While (Len(Binary) % 4) <> 0
+        While Math.IEEERemainder(Len(Binary), 4) <> 0
             Binary = "0" & Binary
         End While
         For i = 1 To (Len(Binary) / 4)
