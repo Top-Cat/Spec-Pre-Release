@@ -60,7 +60,7 @@ Module Module1
                     Case "E" : BinaryEquivalent = "1110"
                     Case "F" : BinaryEquivalent = "1111"
                 End Select
-            Else
+            Else ' REALLY, just really?
             End If
             Result = Result + BinaryEquivalent 'Should use '&' but won't error. Due to hardcoded strings
         Next
