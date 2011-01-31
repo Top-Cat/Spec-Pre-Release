@@ -98,7 +98,7 @@ Module Module1
             HexNumber = LineInput(1)
             BinaryNumber = Binary(HexNumber)
             Console.WriteLine(BinaryNumber)
-            FilePut(1, BinaryNumber)
+            FilePut(2, BinaryNumber)
         Loop
         FileClose(1)
         FileClose(2)
