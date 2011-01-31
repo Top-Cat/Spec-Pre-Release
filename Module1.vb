@@ -8,8 +8,8 @@ Module Module1
             ShowMenu()
             GetResponse(Choice)
             Select Case Choice
-                Case 1 : ConvertNumber()
-                Case 2 : ConvertNumber()
+                Case 1 : ConvertNumber(True)
+                Case 2 : ConvertNumber(False)
                 Case 3 : ConvertFile()
                 Case 4 : DisplayFile()
                 Case 5 : Finished = True
