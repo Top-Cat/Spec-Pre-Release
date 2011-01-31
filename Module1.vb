@@ -5,15 +5,15 @@ Module Module1
         Dim Finished As Boolean
         Finished = False ' Does nothing
         While Not Finished
-                ShowMenu()
-                GetResponse(Choice)
-                Select Case Choice
-                    Case 1 : ConvertNumber()
-                    Case 2 : ConvertFile()
-                    Case 3 : DisplayFile()
-                    Case 4 : Finished = True' end program - doesn't (it ends anyway)
-                End Select
-                Console.ReadLine()
+            ShowMenu()
+            GetResponse(Choice)
+            Select Case Choice
+                Case 1 : ConvertNumber()
+                Case 2 : ConvertFile()
+                Case 3 : DisplayFile()
+                Case 4 : Finished = True ' end program - doesn't (it ends anyway)
+            End Select
+            Console.ReadLine()
         End While
     End Sub ' of main
 
@@ -28,8 +28,11 @@ Module Module1
     End Sub ' of ShowMenu
 
     Sub GetResponse(ByRef Response As Integer)
-        Console.Write("Enter option number: ")
-        Response = Console.ReadLine() 'Will error if non-number is entered
+        Response = 0
+        While Response > 4 Or Response < 1
+            Console.Write("Enter option number: ")
+            Response = Val(Console.ReadLine()) 'Will error if non-number is enter
+        End While
     End Sub ' of GetResponse
 
     Function Binary(ByVal Hex As String) As String
@@ -102,5 +105,5 @@ Module Module1
         Loop
         FileClose(1)
     End Sub ' of DisplayFile
-	
+
 End Module
